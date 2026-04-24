@@ -1,127 +1,101 @@
 @import "../../_globalColor";
 
-.main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 4rem;
-}
 .greet-main {
-  width: 90%;
-  padding: 20px 10px;
+  width: 100%; 
+  padding: 20px 50px; // Padding badha di taaki wide screen pe achha lage
   margin: 0px auto;
   margin-top: 2rem;
 }
 
 .greeting-main {
   display: flex;
-}
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 30px; // Gap zaroori hai badi image ke liye
 
-.subTitle {
-  color: $subTitle !important;
-}
+  .greeting-text-div {
+    flex: 0.8; // Text ko thoda kam space
+  }
 
-.greeting-main {
-  display: flex;
-}
-
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.empty-div {
-  margin-bottom: 40px;
-}
-
-.button-greeting-div {
-  display: flex;
-  margin-top: 40px;
-}
-.download-link-button {
-  text-decoration: none;
+  .greeting-image-div {
+    flex: 1.2; // Image section ko zyada space diya (Taaki 600px fit ho sake)
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
 }
 
 .greeting-text {
-  font-size: 70px;
+  font-size: 70px; // Thoda balance kiya 600px image ke saath
   line-height: 1.1;
   color: $textColor !important;
 }
 
 .greeting-text-p {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 40px;
+  color: $subTitle !important;
 }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
-}
+.greeting-image-div {
+  img {
+    width: 100%;
+    // Asli magic yahan hai: 600px max, par 40vw se responsive
+    max-width: 600px; 
+    min-width: 350px; 
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;   
+    border-radius: 50% !important; 
 
-.wave-emoji {
-  animation-duration: 1.8s;
-  animation-iteration-count: infinite;
-  animation-name: wave;
-  display: inline-block;
-  transform-origin: 70% 70%;
-}
-
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(-10deg);
-  }
-  20% {
-    transform: rotate(12deg);
-  }
-  30% {
-    transform: rotate(-10deg);
-  }
-  40% {
-    transform: rotate(9deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-/* Media Query */
-@media (max-width: 1380px) {
-  .greeting-text {
-    font-size: 50px;
-  }
-  .greeting-text-p {
-    font-size: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
-  }
-  .greeting-text {
-    font-size: 30px;
-    text-align: center;
-  }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
-  }
-  .greeting-main {
+    // Zyada attractive animated border
+    padding: 15px; // Thicker border
+    background: linear-gradient(
+      45deg, 
+      #55198b, #2196f3, #00d2ff, #7f00ff, #ff00c8, #55198b
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 4s ease infinite; // Speed thodi badhai attractive lagne ke liye
+    
+    // Deeper Shadow for "Floating" effect
+    box-shadow: 0px 20px 80px rgba(33, 150, 243, 0.5), 0px 0px 20px rgba(127, 0, 255, 0.3);
+    
     display: block;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Bouncy transition
+
+    &:hover {
+      transform: scale(1.08) rotate(2deg); // Hover pe thoda rotate bhi hoga, sexy lagega
+      box-shadow: 0px 30px 100px rgba(255, 0, 200, 0.6);
+    }
+  }
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Fixes */
+@media (max-width: 1380px) {
+  .greeting-text { font-size: 50px; }
+  .greeting-image-div img {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .greet-main { padding: 20px; }
+  .greeting-main { 
+    flex-direction: column-reverse;
+    text-align: center;
   }
   .greeting-image-div {
-    height: 256px;
-  }
-}
-
-@media (max-width: 320px) {
-  .main {
-    width: auto;
+    margin-bottom: 40px;
+    img {
+      max-width: 300px;
+      padding: 10px;
+    }
   }
 }

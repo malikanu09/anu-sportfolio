@@ -1,28 +1,26 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Headroom from "react-headroom";
-import "./Header.scss";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
 import {
-  greeting,
-  workExperiences,
-  skillsSection,
-  openSource,
-  blogSection,
-  talkSection,
   achievementSection,
-  resumeSection
+  blogSection,
+  greeting,
+  skillsSection,
+  talkSection,
+  workExperiences
 } from "../../portfolio";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import "./Header.scss";
 
 function Header() {
-  const {isDark} = useContext(StyleContext);
-  const viewExperience = workExperiences.display;
-  const viewOpenSource = openSource.display;
-  const viewSkills = skillsSection.display;
-  const viewAchievement = achievementSection.display;
-  const viewBlog = blogSection.display;
-  const viewTalks = talkSection.display;
-  const viewResume = resumeSection.display;
+  const { isDark } = useContext(StyleContext);
+  
+  // Safe check taaki agar variable na mile toh crash na ho
+  const viewExperience = workExperiences && workExperiences.display;
+  const viewSkills = skillsSection && skillsSection.display;
+  const viewAchievement = achievementSection && achievementSection.display;
+  const viewBlog = blogSection && blogSection.display;
+  const viewTalks = talkSection && talkSection.display;
 
   return (
     <Headroom>
@@ -36,7 +34,7 @@ function Header() {
         <label
           className="menu-icon"
           htmlFor="menu-btn"
-          style={{color: "white"}}
+          style={{ color: "white" }}
         >
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
@@ -51,16 +49,7 @@ function Header() {
               <a href="#experience">Work Experiences</a>
             </li>
           )}
-          {viewOpenSource && (
-            <li>
-              <a href="#opensource">Open Source</a>
-            </li>
-          )}
-          {viewAchievement && (
-            <li>
-              <a href="#achievements">Achievements</a>
-            </li>
-          )}
+          
           {viewBlog && (
             <li>
               <a href="#blogs">Blogs</a>
@@ -71,16 +60,10 @@ function Header() {
               <a href="#talks">Talks</a>
             </li>
           )}
-          {viewResume && (
-            <li>
-              <a href="#resume">Resume</a>
-            </li>
-          )}
           <li>
             <a href="#contact">Contact Me</a>
           </li>
           <li>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a>
               <ToggleSwitch />
             </a>
@@ -90,4 +73,5 @@ function Header() {
     </Headroom>
   );
 }
+
 export default Header;
