@@ -2,7 +2,7 @@
 
 .greet-main {
   width: 100%; 
-  padding: 20px 50px; // Padding badha di taaki wide screen pe achha lage
+  padding: 20px 50px; 
   margin: 0px auto;
   margin-top: 2rem;
 }
@@ -11,14 +11,14 @@
   display: flex;
   justify-content: space-between; 
   align-items: center; 
-  gap: 30px; // Gap zaroori hai badi image ke liye
+  gap: 30px; 
 
   .greeting-text-div {
-    flex: 0.8; // Text ko thoda kam space
+    flex: 0.8; 
   }
 
   .greeting-image-div {
-    flex: 1.2; // Image section ko zyada space diya (Taaki 600px fit ho sake)
+    flex: 1.2; 
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -26,7 +26,7 @@
 }
 
 .greeting-text {
-  font-size: 70px; // Thoda balance kiya 600px image ke saath
+  font-size: 70px; 
   line-height: 1.1;
   color: $textColor !important;
 }
@@ -40,7 +40,6 @@
 .greeting-image-div {
   img {
     width: 100%;
-    // Asli magic yahan hai: 600px max, par 40vw se responsive
     max-width: 600px; 
     min-width: 350px; 
     height: auto;
@@ -48,24 +47,29 @@
     object-fit: cover;   
     border-radius: 50% !important; 
 
-    // Zyada attractive animated border
-    padding: 15px; // Thicker border
+    /* --- IMAGE FIX PROTOCOL --- */
+    filter: none !important;           // Purane filters ko kill karo
+    mix-blend-mode: normal !important;  // Photo ko asali rang mein rakho
+    opacity: 1 !important;             // Visibility check
+    background-color: transparent;      // Extra white layer hatao
+    /* -------------------------- */
+
+    padding: 12px; 
     background: linear-gradient(
       45deg, 
       #55198b, #2196f3, #00d2ff, #7f00ff, #ff00c8, #55198b
     );
     background-size: 400% 400%;
-    animation: gradient-animation 4s ease infinite; // Speed thodi badhai attractive lagne ke liye
+    animation: gradient-animation 4s ease infinite; 
     
-    // Deeper Shadow for "Floating" effect
-    box-shadow: 0px 20px 80px rgba(33, 150, 243, 0.5), 0px 0px 20px rgba(127, 0, 255, 0.3);
+    box-shadow: 0px 20px 80px rgba(33, 150, 243, 0.5);
     
     display: block;
     border: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Bouncy transition
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover {
-      transform: scale(1.08) rotate(2deg); // Hover pe thoda rotate bhi hoga, sexy lagega
+      transform: scale(1.08) rotate(2deg);
       box-shadow: 0px 30px 100px rgba(255, 0, 200, 0.6);
     }
   }
@@ -95,7 +99,7 @@
     margin-bottom: 40px;
     img {
       max-width: 300px;
-      padding: 10px;
+      padding: 8px;
     }
   }
 }

@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import Headroom from "react-headroom";
 import StyleContext from "../../contexts/StyleContext";
 import {
-  achievementSection,
-  blogSection,
   greeting,
   skillsSection,
   talkSection,
@@ -18,8 +16,8 @@ function Header() {
   // Safe check taaki agar variable na mile toh crash na ho
   const viewExperience = workExperiences && workExperiences.display;
   const viewSkills = skillsSection && skillsSection.display;
-  const viewAchievement = achievementSection && achievementSection.display;
-  const viewBlog = blogSection && blogSection.display;
+
+
   const viewTalks = talkSection && talkSection.display;
 
   return (
@@ -64,7 +62,7 @@ function Header() {
             <a href="#contact">Contact Me</a>
           </li>
           <li>
-            <a>
+          <a href="#">
               <ToggleSwitch />
             </a>
           </li>
