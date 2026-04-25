@@ -40,37 +40,39 @@
 .greeting-image-div {
   img {
     width: 100%;
-    max-width: 600px; 
+    max-width: 550px; // Thoda size adjust kiya balance ke liye
     min-width: 350px; 
     height: auto;
     aspect-ratio: 1 / 1; 
     object-fit: cover;   
     border-radius: 50% !important; 
 
-    /* --- IMAGE FIX PROTOCOL --- */
-    filter: none !important;           // Purane filters ko kill karo
-    mix-blend-mode: normal !important;  // Photo ko asali rang mein rakho
-    opacity: 1 !important;             // Visibility check
-    background-color: transparent;      // Extra white layer hatao
+    /* --- IMAGE CLARITY FIX --- */
+    filter: brightness(1) contrast(1.05) !important; 
+    mix-blend-mode: normal !important; 
+    opacity: 1 !important; 
+    background-color: transparent; 
     /* -------------------------- */
 
-    padding: 12px; 
+    padding: 10px; 
+    // Gradient ko soft kiya hai (Hata diye chumbne wale colors)
     background: linear-gradient(
       45deg, 
-      #55198b, #2196f3, #00d2ff, #7f00ff, #ff00c8, #55198b
+      #55198b, #2196f3, #7f00ff, #55198b
     );
     background-size: 400% 400%;
-    animation: gradient-animation 4s ease infinite; 
+    animation: gradient-animation 6s ease infinite; // Speed slow kar di takki ankhein na thakein
     
-    box-shadow: 0px 20px 80px rgba(33, 150, 243, 0.5);
+    // Shadow ko soft kiya (0.5 se 0.25 opacity)
+    box-shadow: 0px 15px 50px rgba(33, 150, 243, 0.25);
     
     display: block;
     border: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      transform: scale(1.08) rotate(2deg);
-      box-shadow: 0px 30px 100px rgba(255, 0, 200, 0.6);
+      transform: scale(1.04) rotate(1deg); // Smooth hover
+      box-shadow: 0px 20px 70px rgba(127, 0, 255, 0.4);
     }
   }
 }
@@ -85,7 +87,7 @@
 @media (max-width: 1380px) {
   .greeting-text { font-size: 50px; }
   .greeting-image-div img {
-    max-width: 450px;
+    max-width: 400px;
   }
 }
 
@@ -98,8 +100,8 @@
   .greeting-image-div {
     margin-bottom: 40px;
     img {
-      max-width: 300px;
-      padding: 8px;
+      max-width: 280px;
+      padding: 6px;
     }
   }
 }
