@@ -48,15 +48,14 @@ export default function Greeting() {
               style={{
                 width: "100%",
                 maxWidth: "400px",
-                height: "auto", // Auto height better rehti hai aspect ratio ke liye
-                aspectRatio: "1/1", // Isse perfect circle banega
+                height: "auto", 
+                aspectRatio: "1/1", 
                 borderRadius: "50%",
+                // Box shadow ko dynamic rakha hai par background filter hata diya hai
                 boxShadow: isDark ? "0px 10px 40px rgba(0,0,0,0.8)" : "0px 10px 30px rgba(0,0,0,0.2)",
                 objectFit: "cover",
                 border: "5px solid rgba(255, 255, 255, 0.1)",
-                display: "block",
-                filter: "brightness(1) contrast(1.1)", // Thoda aur contrast badhaya hai
-                backgroundColor: "#171c28" // Dark background taaki transparency issues na aayein
+                display: "block"
               }}
             />
           </div>

@@ -57,7 +57,7 @@ subHeader: "Bachelor of Technology in Computer Science",
 duration: "2023 - 2027",
  desc: "Currently in 6th Semester with top academic performance.",
  descBullets: ["🥈 Silver Medalist - Uttarakhand Technical University (UTU)",
-"Focusing on Advanced Data Structures and Full Stack Web Tech"
+"Focusing on  Data Structures and Full Stack Web Tech"
 ]
  }
  ]
@@ -92,7 +92,7 @@ desc: "Managing technical events and coordinating between departments for colleg
  ]
 };
 
-// Ise maine poora saaf kar diya hai taaki error na aaye
+
 const achievementSection = {
  display: false,
  achievements: [] 
